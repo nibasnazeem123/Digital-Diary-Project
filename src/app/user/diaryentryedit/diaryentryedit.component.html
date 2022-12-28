@@ -38,9 +38,8 @@
                 name="entry-title"
                 id="entry-title"
                 class="entry-text-title ng-pristine ng-valid ng-touched"
-                readonly="readonly"
+                
                 formControlName='Date'
-
               />
               <label for="entry" class="journal-label">Today's Entry</label>
               <textarea
@@ -49,7 +48,7 @@
                 class="entry-text-box"
                ></textarea>
               <button class="btn-main entry-submit-btn" (click)="onSubmit()">Add Entry</button>
-
+              <input type="hidden" formControlName='uid' value="1" >
             </form>
           </div>
         </div>

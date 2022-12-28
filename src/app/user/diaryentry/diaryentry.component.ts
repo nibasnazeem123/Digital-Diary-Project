@@ -15,11 +15,11 @@ export class DiaryentryComponent {
   constructor(public datepipe: DatePipe,private fb: FormBuilder,private backendservice:BackendserviceService){
 
 
-    let currentDateTime =this.datepipe.transform((new Date), 'EEEE, MMMM d, y');
+    let currentDateTime =this.datepipe.transform((new Date), 'dd-MM-yyyy');
     this.currdate=currentDateTime;
     //console.log(currentDateTime);
   }
-  DiaryEntryForm = this.fb.group({Date: [''],  Entry: [''],uid:['']})
+  DiaryEntryForm = this.fb.group({title:[''],date: [''],description: [''],uid:['']})
 
       OnSubmit() {
       console.log(this.DiaryEntryForm.value);

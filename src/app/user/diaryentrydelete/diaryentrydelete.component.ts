@@ -1,23 +1,25 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BackendserviceService } from 'src/app/backendservice.service';
+
 @Component({
-  selector: 'app-diaryentryedit',
-  templateUrl: './diaryentryedit.component.html',
-  styleUrls: ['./diaryentryedit.component.scss']
+  selector: 'app-diaryentrydelete',
+  templateUrl: './diaryentrydelete.component.html',
+  styleUrls: ['./diaryentrydelete.component.scss']
 })
-export class DiaryentryeditComponent implements OnInit {
+export class DiaryentrydeleteComponent {
   did: any;
   public Coursedataarray: any;
-  EditCourseForm: FormGroup;
+  DeleteForm: FormGroup;
 
   constructor(private route:ActivatedRoute,private Fb:FormBuilder,private backendService:BackendserviceService){
 
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.did = params.get('did')
       })
-      this.EditCourseForm = this.Fb.group({
+      this.DeleteForm = this.Fb.group({
         title:[''],date: [''],description: [''],uid:['']
       })
   }
@@ -25,25 +27,36 @@ export class DiaryentryeditComponent implements OnInit {
 
 
 ngOnInit(): void{
+
+
+
+
   this.backendService.getcoursebaseid(this.did).subscribe((data: any) => {
     this.Coursedataarray = data;
-    this.EditCourseForm.setValue({
+    this.DeleteForm.setValue({
       did: data.did,
       title:data.title,
       date: data.date,
-
+      
       description: data.description,
       uid:data.uid,
 
     });
-    //this.EditCourseForm.patchValue(this.Coursedataarray)
+    //this.DeleteForm.patchValue(this.Coursedataarray)
     });
+
+
+
+
+
+
     }
 
 
     onSubmit() {
-      this.backendService.Updatecoursedata(this.EditCourseForm.value)
+      this.backendService.deletecoursedata(this.DeleteForm.value)
 
-      console.log(this.EditCourseForm.value)
+      console.log(this.DeleteForm.value)
       }
+
 }

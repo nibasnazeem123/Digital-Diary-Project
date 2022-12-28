@@ -1,0 +1,23 @@
+<div class="container">
+  <form  [formGroup]='DeleteForm'>
+    <div class="container mt-3">
+          <h1>Diary Entry</h1>
+          <table class="table">
+              <thead>
+                  <th>Date </th>
+                  <th> Data </th>
+
+              </thead>
+              <tr   class="table-primary">
+                  <td> {{Coursedataarray["date"]}}</td>
+                  <td> {{Coursedataarray["description"]}}</td>
+
+              </tr>
+          </table>
+      </div>
+  <div class="buttons">
+    <button class="confirm-button" (click)="onSubmit()" >Confirm</button>
+    <button class="cancel-button" [routerLink]="['/Home/view']">Cancel</button>
+  </div>
+</form>
+</div>

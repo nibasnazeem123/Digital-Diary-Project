@@ -9,13 +9,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { DiaryentryeditComponent } from './user/diaryentryedit/diaryentryedit.component';
 import { DiaryentryviewComponent } from './user/diaryentryview/diaryentryview.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { DiaryentrydeleteComponent } from './user/diaryentrydelete/diaryentrydelete.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DiaryentryComponent,
     DiaryentryeditComponent,
-    DiaryentryviewComponent
+    DiaryentryviewComponent,
+    HomepageComponent,
+    DiaryentrydeleteComponent
+
 
   ],
   imports: [
